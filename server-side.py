@@ -13,14 +13,24 @@ twitter_api_key_secret = os.environ['TWITTER_API_KEY_SECRET']
 auth = OAuthHandler(twitter_api_key, twitter_api_key_secret)
 auth_api = API(auth)
 
-text_query = "food"
+if (len(sys.argv) > 1):
+    search_list = sys.argv[1:]
+else:
+    print("Please provide a list of foods at the command line.")
+    sys.exit(0)
+
+def get_item():
+    index = random.randint(0, len(search_list))
+    search_item = search_list[index]
+    return search_item
+    
 tweet_list = []
 count = 10
 
 def get_tweets():
     lang = "en"
 
-    for tweet in auth_api.search(text_query, lang, count):
+    for tweet in auth_api.search(get_item(), lang, count):
         tweet_list.append(f"{tweet.user.screen_name}  -----  {tweet.text}")
         #print(tweet.user.name + " ----- " + tweet.text)
 
