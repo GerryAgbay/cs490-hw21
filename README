@@ -1,0 +1,36 @@
+This is an app that retrieves tweet information (tweet, username, upload date/time, and URL) related to different food search words (hardcoded in server-side.py).
+
+
+Technical Steps to use this repository:
+
+0.) Apply for a Twitter developer account at https://developer.twitter.com/en/apply-for-access 
+1.) After creating a project, click on the key symbol "keys and tokens" in your developer portal and click "view keys" to access your API key and API key secret. 
+    Also generate and record/remember your Access Token and Secret.
+2.) Clone this repository in your terminal by doing: git clone https://github.com/NJIT-CS490/project1-gda6 . 
+    Note that since this repository is private, you need to input the username and password.
+3.) Install tweepy in your terminal by doing:
+      sudo pip install tweepy (or)
+      sudo pip3 install tweepy (or)
+      pip3 install tweepy
+4.) Install flask in your terminal by doing: 
+      sudo pip install flask (or)
+      sudo pip3 install flask (or)
+      pip3 install flask
+5.) Install python-dotenv in your terminal by doing:
+      sudo pip install python-dotenv (or)
+      sudo pip3 install python-dotenv (or)
+      pip3 install python-dotenv
+5.) Create a new file called 'twitter.env' in the 'project1-gda6' directory and populate it with:
+      export TWITTER_API_KEY='<API_Key>' , where <API_Key> is replaced with your Twitter API key (see step 1).
+      export TWITTER_API_KEY_SECRET='<API_Key_Secret>' , where <API_Key_Secret> is replaced with your Twitter API key secret (see step 1).
+      export TWITTER_ACCESS_TOKEN='<Access_Token>' , where <Access_Token> is replaced with your Twitter access token (see step 1).
+      export TWITTER_ACCESS_TOKEN_SECRET='<Access_Token_Secret>' , where <Access_Token_Secret> is replaced with your Twitter access token secret (see step 1).
+6.) Run 'server-side.py' in your terminal by doing: python server-side.py
+7.) If running on Cloud9, click 'Preview', then 'Preview Running Application'. This should open a new tab within Cloud9, showing the page output.
+      If you want to view the webpage on a separate window of your browser, click “Pop Out Into New Window” on the right side of the Cloud9 output tab. 
+      Refreshing the page should produce a new tweet related to the same or different food item. Repetition may occur.
+      
+      
+Technical Issues Experienced:
+
+0.) 
