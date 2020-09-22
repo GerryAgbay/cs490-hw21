@@ -1,7 +1,9 @@
 This is an app that retrieves tweet information (tweet, username, upload date/time, and URL) related to different food search words (hardcoded in server-side.py).
 
+___________________________________________
 
-Technical Steps to use this repository:
+
+Technical Steps to Use This Repository:
 
 0.) Apply for a Twitter developer account at https://developer.twitter.com/en/apply-for-access 
 1.) After creating a project, click on the key symbol "keys and tokens" in your developer portal and click "view keys" to access your API key and API key secret. 
@@ -30,7 +32,47 @@ Technical Steps to use this repository:
       If you want to view the webpage on a separate window of your browser, click “Pop Out Into New Window” on the right side of the Cloud9 output tab. 
       Refreshing the page should produce a new tweet related to the same or different food item. Repetition may occur.
       
+_____________________________________________
+      
       
 Technical Issues Experienced:
 
-0.) 
+0.) I was getting a key error with the variable 'twitter_api_key' in 'server-side.py', which was retrieved from twitter.env using os.environ().
+    I checked if the parameter values in server-side.py matched the export variable names in twitter.env. The error persisted.
+    I made sure that the key values were actually correct and matched what was on the twitter developer portal. 
+    After going through my notes, I saw "source confirms changes made". 
+    The problem ended up being that I just forgot to source 'twitter.env', which contains the keys.
+    To fix this inconvenience, I installed python-dotenv and implemented it in server-side.py.
+        I imported join, dirname, and load_dotenv.
+        I used os.getenv() for the keys and access tokens.
+        These changes make it so that I do not have to keep sourcing the .env file every time I get on Cloud9 to run the program.
+1.) I was getting an index error: out of range with two lists I made, one to store the food arguments and the other to store multiple tweets.
+    The error came from randint(), which I used to get a random number to index an item from the lists. 
+    I googled whether randint() was inclusive or exclusive and learned of the function random.choice().
+    This makes it easier since it simply returns a random element from a given non-empty sequence set.
+    Instead of retrieving a random element indirectly using randint(), random.choice() does this task directly.
+2.) I was getting an error with the description 'could not build URL for endpoint static_styling.
+    Basically, I was having trouble connecting html to css.
+    To fix this, I tried re-watching the 'Lecture 4 Demo 4' YouTube video.
+    I tried matching the 'link rel' line from the video with mine in case I was missing something minute.
+    Everything was the same except for the folder and file names, which I thought was not an issue.
+    I went to office hours and learned that the folder name had to be named 'static' : url_for('static' filename='styling.css').
+    Changing the folder name where the css file was located to 'static' and changing the rel line appropriately solved the problem.
+    As a result, my program could now output results on a separate page.
+    
+_____________________________________________
+
+
+Existing Issues/Possible Improvements:
+
+0.) With regards to the results, not all the tweets are related to the food item keyword.
+    Sometimes, the username will match the keyword but the tweet has nothing to do with the keyword.
+    Sometimes, the keyword is in the tweet itself, but it is not in the context of food.
+    It would be best if the keyword was in the actual tweet and in the right context.
+    This issue is acceptable according to instruction and quite frankly, I do not know how to fix/ improve it.
+1.) I would want to improve this app so that it takes in search words from the user.
+    This option might be available through the terminal command line or even better, the page itself.
+    The app would then produce different tweets based on the user's search.
+    I had this feature available through the command line, but since the food keywords had to be hardcoded per instruction, I commented it out.
+    Currently, the pre-determined food keywords are stored in a list in server-side.py
+    
