@@ -13,27 +13,24 @@ twitter_api_key_secret = os.environ['TWITTER_API_KEY_SECRET']
 auth = OAuthHandler(twitter_api_key, twitter_api_key_secret)
 auth_api = API(auth)
 
-
-if (len(sys.argv) > 1):\
-    search_list = sys.argv[1:]
-else:
-    print("Please provide a list of foods at the command line.")
-    sys.exit(0)
+#if (len(sys.argv) > 1):\
+    #search_list = sys.argv[1:]
+#else:
+    #print("Please provide a list of foods at the command line.")
+    #sys.exit(0)
     
+search_list = ["sushi", "onigiri", "pho", "udon", "kimchi", "tonkatsu", "bulgogi", 
+               "wonton", "yakitori", "mochi", "jiaozi", "sashimi", "ramen", "yakiniku", "wagashi"]
 
-def get_item():
+def get_food():
     search_item = random.choice(search_list)
     return search_item
 
-
-app = flask.Flask(__name__)
-
-@app.route("/")
-def index():
-    tweet_list = []
+def get_tweets():
+    tweets_list = []
     count = 20
     lang = "en"
-    search = get_item()
+    search = get_food()
     
     tweets = auth_api.search(search, lang, count)
     for tweet in tweets:
@@ -41,18 +38,22 @@ def index():
         contents = tweet.text
         date = tweet.created_at
         url = tweet.source_url
-        tweet_list.append((user, contents, date, url))
-        
-    info = random.choice(tweet_list)
-    headers = ["User", "Tweet", "Date", "URL"]
+        tweets_list.append((user, contents, date, url))
     
+    information = [search, tweets_list]
+    return information
+
+app = flask.Flask(__name__)
+
+@app.route("/")
+def index():
+    info = get_tweets()
+    tweet = random.choice(info[1])
     return flask.render_template(
         "food_tweets.html",
-        len_info = len(info),
-        info_html = info,
-        len_headers = len(headers),
-        headers_html = headers,
-        keyword = search
+        len_tweet = len(tweet),
+        tweet_html = tweet,
+        keyword = info[0]
     )
     
 app.run(
