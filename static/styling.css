@@ -1,0 +1,36 @@
+body{
+    background-color: #FFE4E1;
+}
+h1 {
+    font-family: Georgia;
+    color: #000000;
+    font-size: 150pt;
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+mark.red{
+    color: #DC143C;
+    background-color: #FFE4E1;
+    font-size: 200pt;
+}
+h2 {
+    font-family: Courier;
+    color: #000000;
+    background-color: #00FFFF;
+    font-size: 100pt;
+    text-align: center;
+}
+h3 {
+    font-family: Courier;
+    color: #000000;
+    font-size: 75pt;
+    text-align: center;
+    line-height: 10px;
+}
+h4 {
+    font-family: Courier;
+    color: #000000;
+    font-size: 65pt;
+    text-align: center;
+    line-height:10px;
+}

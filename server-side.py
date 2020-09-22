@@ -22,8 +22,7 @@ else:
     
 
 def get_item():
-    index = random.randint(0, len(search_list)-1)
-    search_item = search_list[index]
+    search_item = random.choice(search_list)
     return search_item
 
 
@@ -32,23 +31,27 @@ app = flask.Flask(__name__)
 @app.route("/")
 def index():
     tweet_list = []
-    count = 10
+    count = 20
     lang = "en"
     search = get_item()
-
-    for tweets in auth_api.search(search, lang, count):
-        screen_name = tweets.user.screen_name
-        contents = tweets.text
-        date = tweets.created_at
-        tweet_list.append(f"{screen_name}   -----   {date}   -----   {contents}")
+    
+    tweets = auth_api.search(search, lang, count)
+    for tweet in tweets:
+        user = "@" + tweet.user.screen_name
+        contents = tweet.text
+        date = tweet.created_at
+        url = tweet.source_url
+        tweet_list.append((user, contents, date, url))
         
-    rand_idx = random.randint(0, count-1)
-    print(tweet_list[rand_idx])
-    info = tweet_list[rand_idx]
+    info = random.choice(tweet_list)
+    headers = ["User", "Tweet", "Date", "URL"]
     
     return flask.render_template(
         "food_tweets.html",
-        information = info,
+        len_info = len(info),
+        info_html = info,
+        len_headers = len(headers),
+        headers_html = headers,
         keyword = search
     )
     
