@@ -1,17 +1,22 @@
 import flask
 import os
 import tweepy
-from tweepy import OAuthHandler
-from tweepy import API
-from tweepy import Cursor
 import sys
 import random
+from os.path import join, dirname
+from dotenv import load_dotenv
 
-twitter_api_key = os.environ['TWITTER_API_KEY']
-twitter_api_key_secret = os.environ['TWITTER_API_KEY_SECRET']
+dotenv_path = join(dirname(__file__), 'twitter.env')
+load_dotenv(dotenv_path)
 
-auth = OAuthHandler(twitter_api_key, twitter_api_key_secret)
-auth_api = API(auth)
+twitter_api_key = os.getenv('TWITTER_API_KEY')
+twitter_api_key_secret = os.getenv('TWITTER_API_KEY_SECRET')
+twitter_access_token = os.getenv('TWITTER_ACCESS_TOKEN')
+twitter_access_token_secret = os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
+
+auth = tweepy.OAuthHandler(twitter_api_key, twitter_api_key_secret)
+auth.set_access_token(twitter_access_token, twitter_access_token_secret)
+auth_api = tweepy.API(auth)
 
 #if (len(sys.argv) > 1):\
     #search_list = sys.argv[1:]
@@ -32,10 +37,13 @@ def get_tweets():
     lang = "en"
     search = get_food()
     
-    tweets = auth_api.search(search, lang, count)
+    tweets = auth_api.search(search, lang, count, tweet_mode='extended')
     for tweet in tweets:
+        if hasattr(tweet, 'retweeted_status'):
+            contents = tweet.retweeted_status.full_text
+        else:
+            contents = tweet.full_text
         user = "@" + tweet.user.screen_name
-        contents = tweet.text
         date = tweet.created_at
         url = tweet.source_url
         tweets_list.append((user, contents, date, url))

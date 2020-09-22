@@ -4,33 +4,33 @@ body{
 h1 {
     font-family: Georgia;
     color: #000000;
-    font-size: 150pt;
+    font-size: 45pt;
     text-align: center;
     padding-bottom: 0.5em;
 }
 mark.red{
     color: #DC143C;
     background-color: #FFE4E1;
-    font-size: 200pt;
+    font-size: 60pt;
 }
 h2 {
     font-family: Courier;
     color: #000000;
     background-color: #00FFFF;
-    font-size: 100pt;
+    font-size: 30pt;
     text-align: center;
 }
 h3 {
     font-family: Courier;
     color: #000000;
-    font-size: 75pt;
+    font-size: 25pt;
     text-align: center;
     line-height: 10px;
 }
 h4 {
     font-family: Courier;
     color: #000000;
-    font-size: 65pt;
+    font-size: 20pt;
     text-align: center;
     line-height:10px;
 }
