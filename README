@@ -22,13 +22,13 @@ Technical Steps to Use This Repository:
       sudo pip install python-dotenv (or)
       sudo pip3 install python-dotenv (or)
       pip3 install python-dotenv
-5.) Create and save a new file called 'twitter.env' in the 'project1-gda6' directory and populate it with:
+6.) Create and save a new file called 'twitter.env' in the 'project1-gda6' directory and populate it with:
       export TWITTER_API_KEY='<API_Key>' , where <API_Key> is replaced with your Twitter API key (see step 1).
       export TWITTER_API_KEY_SECRET='<API_Key_Secret>' , where <API_Key_Secret> is replaced with your Twitter API key secret (see step 1).
       export TWITTER_ACCESS_TOKEN='<Access_Token>' , where <Access_Token> is replaced with your Twitter access token (see step 1).
       export TWITTER_ACCESS_TOKEN_SECRET='<Access_Token_Secret>' , where <Access_Token_Secret> is replaced with your Twitter access token secret (see step 1).
-6.) Run 'server-side.py' in your terminal by doing: python server-side.py
-7.) If running on Cloud9, click 'Preview', then 'Preview Running Application'. This should open a new tab within Cloud9, showing the page output.
+7.) Run 'server-side.py' in your terminal by doing: python server-side.py
+8.) If running on Cloud9, click 'Preview', then 'Preview Running Application'. This should open a new tab within Cloud9, showing the page output.
       If you want to view the webpage on a separate window of your browser, click “Pop Out Into New Window” on the right side of the Cloud9 output tab. 
       Refreshing the page should produce a new tweet related to the same or different food item. Repetition may occur.
       
