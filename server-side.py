@@ -3,6 +3,7 @@ import os
 import tweepy
 import sys
 import random
+import requests
 from os.path import join, dirname
 from dotenv import load_dotenv
 
@@ -17,6 +18,16 @@ twitter_access_token_secret = os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
 auth = tweepy.OAuthHandler(twitter_api_key, twitter_api_key_secret)
 auth.set_access_token(twitter_access_token, twitter_access_token_secret)
 auth_api = tweepy.API(auth)
+
+dotenv_path = join(dirname(__file__), 'spoonacular.env')
+load_dotenv(dotenv_path)
+
+spoonacular_key = os.getenv('SPOONACULAR_KEY')
+url = 'https://api.spoonacular.com/recipes/search?apiKey={}'.format(spoonacular_key)
+
+response = requests.get(url)
+json_body = response.json()
+print(json_body)
 
 #if (len(sys.argv) > 1):\
     #search_list = sys.argv[1:]
