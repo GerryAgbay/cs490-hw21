@@ -55,12 +55,19 @@ def get_recipe_info(food_name):
     recipe_link = recipe_dictionary["sourceUrl"]
     recipe_time = recipe_dictionary["readyInMinutes"]
     recipe_image = recipe_dictionary["image"]
-
+    
     print("ID: " + str(recipe_id))
     print("Name: " + recipe_name)
     print("Original Source: " + recipe_link)
     print("Ready in (Minutes): " + str(recipe_time))
     print("Image URL: " + recipe_image)
+    
+    recipe_info_list = []
+    recipe_info_list.append(recipe_name)
+    recipe_info_list.append(recipe_link)
+    recipe_info_list.append(recipe_time)
+    recipe_info_list.append(recipe_image)
+    return recipe_info_list
 
 def get_tweet(food_name):
     tweets_list = []
@@ -87,12 +94,14 @@ app = flask.Flask(__name__)
 def index():
     food_name = get_food()
     tweet_info = get_tweet(food_name)
-    get_recipe_info(food_name)
+    recipe_info = get_recipe_info(food_name)
     return flask.render_template(
         "food_tweets.html",
+        keyword = food_name,
         len_tweet = len(tweet_info),
         tweet_html = tweet_info,
-        keyword = food_name
+        len_recipe = len(recipe_info),
+        recipe_html = recipe_info
     )
     
 app.run(

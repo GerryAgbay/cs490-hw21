@@ -7,5 +7,11 @@
         <h2><i>"{{ tweet_html[1] }}"  - {{ tweet_html[0] }}</i></h2>
         <h3><b>{{ tweet_html[2] }}</b></h3>
         <h4><b>{{ tweet_html[3] }}</b></h4>
+        <ol>
+        {%for i in range(0, len_recipe)%}
+        
+            <li>{{ recipe_html[i] }} /> </li> 
+        {%endfor%}
+        </ol>
     </body>
 </html>
