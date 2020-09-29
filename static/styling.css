@@ -6,6 +6,7 @@ h1 {
     font-family: Courier;
     color: #000000;
     font-size: 55pt;
+    font-size: 3.5vw;
     text-align: center;
     margin: 0;
 }
@@ -15,55 +16,83 @@ h1 {
     border: 5px solid #FFFFFF;
     height: 45px;
     width: 45px;
+    width: 3vw;
+    height: 6vh;
 }
 
 .first-column {
-    width: 60%;
+    max-width: 60%;
     float:left;
 }
 
 .second-column {
-    width: 40%;
+    max-width: 40%;
     float: right;
 }
 
-mark.red{
+.search {
+    margin: 0;
+}
+.red{
     color: #DC143C;
     background-color: #FAEBD7;
-    font-size: 32pt;
+    font-size: 35pt;
+    font-size: 2.5vw;
+    font-weight: bold;
 }
+
 h2 {
     font-family: Courier;
     color: #000000;
     background-color: #FAEBD7;
     font-size: 22pt;
+    font-size: 2vw;
+    font-weight: normal;
     text-align: left;
-    margin: 0;
+}
+
+.recipe-name {
+    max-width: 95%;
+    margin-top: 0;
 }
 h3 {
     font-family: Courier;
     color: #000000;
     font-size: 35pt;
+    font-size: 2.5vw;
     text-align: left;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    max-width: 800px;
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+.source {
+    max-width: 90%;
 }
 
 h4 {
     font-family: Courier;
     color: #000000;
     font-size: 20pt;
+    font-size: 1.5vw;
+    font-weight: normal;
     text-align: left;
     margin: 0;
 }
-h5 {
-    text-align: left;
-    margin-top: 10px;
-}
 
 .recipe-image {
-    margin: auto;
+    max-width: 95%;
+}
+
+.recipe-image img {
+    width: 700px;
+    max-width: 100%;
+    height: auto;
+}
+
+.info {
+    max-width: 95%;
+    margin-top: 5px;
+    background-color: #FAF0E6;
 }
 
 h6 {
@@ -71,23 +100,34 @@ h6 {
     font-family: Courier;
     color: #000000;
     font-size: 20pt;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    font-size: 2vw;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.red2 {
+    color: #DC143C;
+    font-family: Courier;
+    font-size: 20pt;
+    font-size: 2vw;
+    background-color: #FAF0E6;
 }
 
 h7 {
-    text-align: center;
+    text-align: left;
     font-family: Courier;
     color: #000000;
     font-size: 15pt;
+    font-size: 1.5vw;
     margin: 0;
 }
 
 h8 {
-    text-align: center;
+    text-align: left;
     font-family: Courier;
     color: #000000;
     font-size: 15pt;
+    font-size: 1.5vw;
     margin: 0;
 }
 
@@ -96,7 +136,22 @@ h9 {
     font-family: Courier;
     color: #000000;
     font-size: 12pt;
+    font-size: 1.5vw;
     margin-top: 5px;
+}
+
+.tweet {
+    max-width: 95%;
+    background-color: #F0FFFF;
+}
+
+.tweet img {
+    border-radius: 25px;
+    height: 27px;
+    width: 30px;
+    max-width: 5%;
+    height: auto;
+    
 }
 
 .blue {
@@ -104,29 +159,18 @@ h9 {
     background-color: #F0FFFF;
 }
 
-.bird {
-    border-radius: 25px;
-    height: 27px;
-    width: 30px;
-}
-
 h10 {
-    text-align: center;
+    text-align: left;
     font-family: Courier;
     color: #000000;
     font-size: 11pt;
-    margin: 0;
+    font-size: 1vw;
 }
 
 h11 {
-    text-align: center;
+    text-align: left;
     font-family: Courier;
     color: #000000;
     font-size: 10pt;
-    margin: 0;
-}
-
-.tweet {
-    background-color: #F0FFFF;
-    margin: auto;
+    font-size: 1vw;
 }

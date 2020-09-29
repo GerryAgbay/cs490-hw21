@@ -80,11 +80,9 @@ def get_recipe_info(food_name):
     recipe_info_list.append(recipe_source)
     recipe_info_list.append(str(recipe_likes))
     recipe_info_list.append(str(recipe_score))
-    recipe_info_list.append(recipe_servings)
+    recipe_info_list.append(str(recipe_servings))
     recipe_info_list.append(recipe_ingredients)
     return recipe_info_list
-    
-#get_recipe_info("burger")
 
 def get_tweet(food_name):
     tweets_list = []
@@ -112,7 +110,7 @@ def index():
     food_name = get_food()
     tweet_info = get_tweet(food_name)
     recipe_info = get_recipe_info(food_name)
-    #recipe_info = ["Grilled Cheese Sandwich", "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/", "15", 
+    #recipe_info = ["Grilled Cheese Sandwich on Toasted Bun Melted Cheese", "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/", "15", 
     #"https://hips.hearstapps.com/hmg-prod/images/grilled-cheese-horizontal-jpg-1522266016.jpg", "Full Belly Sisters", "209", "83.0", "2",
     #['butter', 'cayenne', 'egg yolks', 'ground chicken', 'lemon juice', 'oatmeal', 'poached eggs', 'Salt & Pepper', 'Salt & Pepper', 'shallot', 'water', 'worcestershire sauce']]
     return flask.render_template(

@@ -7,22 +7,31 @@
         <h1>Random <img src="/static/Recipe_App_Logo.png" alt="Recipe App Logo" class="logo"> Recipe</h1>
     </header>
     <body>
-        <h2>searched: <mark class="red">{{ keyword }}</mark></h2>
+        <div class="search">
+            <h2>searched: <mark class="red"><b>{{ keyword }}</b></mark></h2>
+        </div>
         <div class="first-column">
-            <h3>{{ recipe_html[0] }}</h3>
-            <h4>Recipe courtesy of <a href={{ recipe_html[1]}} target ="_blank">{{ recipe_html[4] }}</a></h4>
+            <div class="recipe-name">
+                <h3>{{ recipe_html[0] }}</h3>
+            </div>
+            <div class="source">
+                <h4>Recipe courtesy of <a href={{ recipe_html[1]}} target ="_blank">{{ recipe_html[4] }}</a></h4>
+            </div>
             <div class="recipe-image">
-                <h5><img src={{ recipe_html[3] }} alt="Recipe Image" class"recipe_image" width="700" height="325"></h5>
+                <img src={{ recipe_html[3] }} alt="Recipe Image" class"recipe_image">
             </div>
         </div>
         <div class="second-column">
-            <h6>{{ recipe_html[5] }} likes     |     Score: {{ recipe_html[6] }}/100</h6>
-            <h7><b>Ready in (minutes):</b> {{ recipe_html[2] }}</h7>
-            <br>
-            <h8><b>Servings:</b> {{ recipe_html[7] }}
-            <br><b>Ingredients:</b> {%for i in range(0, len_ingredients)%} {{ ingredients_html[i] }}, {%endfor%}</h8>
-            <br>
-            <br>
+            <div class="info">
+                <h6><mark class="red2">{{ recipe_html[5] }}</mark> likes     |     Score: <mark class="red2">{{ recipe_html[6] }}</mark>/100</h6>
+                <br>
+                <h7><b>Ready in (minutes):</b> {{ recipe_html[2] }}</h7>
+                <br>
+                <h8><b>Servings:</b> {{ recipe_html[7] }}
+                <br><b>Ingredients:</b> {%for i in range(0, len_ingredients)%} {{ ingredients_html[i] }}, {%endfor%}</h8>
+                <br>
+                <br>
+            </div>
             <div class="tweet">
                 <h9><img src="/static/twitter_symbol.png" alt="Twitter Logo" class="bird"> <i>{{ tweet_html[1] }}  <mark class="blue">- <b>{{ tweet_html[0] }}</b></mark></i></h9>
                 <br>
