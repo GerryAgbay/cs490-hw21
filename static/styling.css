@@ -1,13 +1,22 @@
 body{
-    background-color: #FFE4E1;
+    background-color: #FFFAF0;
 }
+
 h1 {
-    font-family: Georgia;
+    font-family: Verdana;
     color: #000000;
-    font-size: 45pt;
+    font-size: 40pt;
     text-align: center;
-    padding-bottom: 0.5em;
+    margin: 0;
 }
+
+.logo {
+    border-radius: 15px;
+    border: 3px solid #FFFFFF;
+    height: 40px;
+    width: 40px;
+}
+
 mark.red{
     color: #DC143C;
     background-color: #FFE4E1;

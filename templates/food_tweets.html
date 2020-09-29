@@ -1,7 +1,12 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href={{ url_for('static', filename='styling.css') }} />
     </head>
+    <header>
+        <h1>Random <img src="/static/Recipe_App_Logo.png" alt="Recipe App Logo" class="logo"> Recipe</h1>
+    </header>
+    <!--
     <body>
         <h1>tweet related to: <mark class="red">{{ keyword }}</mark></h1>
         <h2><i>"{{ tweet_html[1] }}"  - {{ tweet_html[0] }}</i></h2>
@@ -10,8 +15,9 @@
         <ol>
         {%for i in range(0, len_recipe)%}
         
-            <li>{{ recipe_html[i] }} /> </li> 
+            <li>{{ recipe_html[i] }} </li> 
         {%endfor%}
         </ol>
     </body>
+    -->
 </html>
