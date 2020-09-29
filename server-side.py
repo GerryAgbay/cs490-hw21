@@ -29,7 +29,8 @@ load_dotenv(dotenv_path)
     #print("Please provide a list of foods at the command line.")
     #sys.exit(0)
     
-search_list = ["hamburger", "spaghetti", "potatoes", "bread"]
+search_list = ["hamburger", "spaghetti", "bread", "chicken", "pasta", "pudding", "cake", "salad",
+               "steak", "taco", "udon", "sushi", "ramen", "pho", "bulgogi"]
     
 #search_list = ["sushi", "onigiri", "pho", "udon", "kimchi", "tonkatsu", "bulgogi", 
                #"wonton", "yakitori", "mochi", "jiaozi", "sashimi", "ramen", "yakiniku", "wagashi"]
@@ -38,30 +39,31 @@ def get_food():
     search_item = random.choice(search_list)
     return search_item
     
-#spoonacular_key = os.getenv('SPOONACULAR_KEY')
+spoonacular_key = os.getenv('SPOONACULAR_KEY')
 
-#def get_recipe_info(food_name):
-    #id_url = "https://api.spoonacular.com/recipes/complexSearch?query=" + food_name + "&number=10&apiKey=" + spoonacular_key
-    #id_response = requests.request("GET", id_url)
-    #id_json_body = id_response.json()
-    #id_dictionary = id_json_body["results"][random.randint(0,9)]
-    #recipe_id = id_dictionary["id"]
+def get_recipe_info(food_name):
+    id_url = "https://api.spoonacular.com/recipes/complexSearch?query=" + food_name + "&number=10&apiKey=" + spoonacular_key
+    id_response = requests.request("GET", id_url)
+    id_json_body = id_response.json()
+    id_dictionary = random.choice(id_json_body["results"])
+    recipe_id = id_dictionary["id"]
     
-    #recipe_url =  "https://api.spoonacular.com/recipes/" + str(recipe_id) + "/information?includeNutrition=false&apiKey=" + spoonacular_key
-    #recipe_response = requests.request("GET", recipe_url)
-    #recipe_dictionary = recipe_response.json()
+    recipe_url =  "https://api.spoonacular.com/recipes/" + str(recipe_id) + "/information?includeNutrition=false&apiKey=" + spoonacular_key
+    recipe_response = requests.request("GET", recipe_url)
+    recipe_dictionary = recipe_response.json()
 
-    #recipe_name = recipe_dictionary["title"]
-    #recipe_link = recipe_dictionary["sourceUrl"]
-    #recipe_time = recipe_dictionary["readyInMinutes"]
-    #recipe_image = recipe_dictionary["image"]
-    #recipe_source = recipe_dictionary["sourceName"]
-    #recipe_likes = recipe_dictionary["aggregateLikes"]
-    #recipe_score = recipe_dictionary["spoonacularScore"]
-    #ingredients_list = recipe_dictionary["extendedIngredients"]
-    #recipe_ingredients = []
-    #for ingredient in ingredients_list:
-        #recipe_ingredients.append(ingredient["name"])
+    recipe_name = recipe_dictionary["title"]
+    recipe_link = recipe_dictionary["sourceUrl"]
+    recipe_time = recipe_dictionary["readyInMinutes"]
+    recipe_image = recipe_dictionary["image"]
+    recipe_source = recipe_dictionary["sourceName"]
+    recipe_likes = recipe_dictionary["aggregateLikes"]
+    recipe_score = recipe_dictionary["spoonacularScore"]
+    recipe_servings = recipe_dictionary["servings"]
+    ingredients_list = recipe_dictionary["extendedIngredients"]
+    recipe_ingredients = []
+    for ingredient in ingredients_list:
+        recipe_ingredients.append(ingredient["name"])
     
     #print("ID: " + str(recipe_id))
     #print("Name: " + recipe_name)
@@ -70,16 +72,17 @@ def get_food():
     #print("Image URL: " + recipe_image)
     #print(recipe_ingredients)
     
-    #recipe_info_list = []
-    #recipe_info_list.append(recipe_name)
-    #recipe_info_list.append(recipe_link)
-    #recipe_info_list.append(recipe_time)
-    #recipe_info_list.append(recipe_image)
-    #recipe_info_list.append(recipe_source)
-    #recipe_info_list.append(str(recipe_likes))
-    #recipe_info_list.append(str(recipe_score))
-    #recipe_info_list.append(recipe_ingredients)
-    #return recipe_info_list
+    recipe_info_list = []
+    recipe_info_list.append(recipe_name)
+    recipe_info_list.append(recipe_link)
+    recipe_info_list.append(recipe_time)
+    recipe_info_list.append(recipe_image)
+    recipe_info_list.append(recipe_source)
+    recipe_info_list.append(str(recipe_likes))
+    recipe_info_list.append(str(recipe_score))
+    recipe_info_list.append(recipe_servings)
+    recipe_info_list.append(recipe_ingredients)
+    return recipe_info_list
     
 #get_recipe_info("burger")
 
@@ -108,10 +111,10 @@ app = flask.Flask(__name__)
 def index():
     food_name = get_food()
     tweet_info = get_tweet(food_name)
-    #recipe_info = get_recipe_info(food_name)
-    recipe_info = ["Grilled Cheese Sandwich", "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/", "15", 
-    "https://hips.hearstapps.com/hmg-prod/images/grilled-cheese-horizontal-jpg-1522266016.jpg", "Full Belly Sisters", "209", "83.0", "2",
-    ['butter', 'cayenne', 'egg yolks', 'ground chicken', 'lemon juice', 'oatmeal', 'poached eggs', 'Salt & Pepper', 'Salt & Pepper', 'shallot', 'water', 'worcestershire sauce']]
+    recipe_info = get_recipe_info(food_name)
+    #recipe_info = ["Grilled Cheese Sandwich", "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/", "15", 
+    #"https://hips.hearstapps.com/hmg-prod/images/grilled-cheese-horizontal-jpg-1522266016.jpg", "Full Belly Sisters", "209", "83.0", "2",
+    #['butter', 'cayenne', 'egg yolks', 'ground chicken', 'lemon juice', 'oatmeal', 'poached eggs', 'Salt & Pepper', 'Salt & Pepper', 'shallot', 'water', 'worcestershire sauce']]
     return flask.render_template(
         "food_tweets.html",
         keyword = food_name,
