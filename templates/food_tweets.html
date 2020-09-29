@@ -6,18 +6,30 @@
     <header>
         <h1>Random <img src="/static/Recipe_App_Logo.png" alt="Recipe App Logo" class="logo"> Recipe</h1>
     </header>
-    <!--
     <body>
-        <h1>tweet related to: <mark class="red">{{ keyword }}</mark></h1>
-        <h2><i>"{{ tweet_html[1] }}"  - {{ tweet_html[0] }}</i></h2>
-        <h3><b>{{ tweet_html[2] }}</b></h3>
-        <h4><b>{{ tweet_html[3] }}</b></h4>
-        <ol>
-        {%for i in range(0, len_recipe)%}
-        
-            <li>{{ recipe_html[i] }} </li> 
-        {%endfor%}
-        </ol>
+        <h2>searched: <mark class="red">{{ keyword }}</mark></h2>
+        <div class="first-column">
+            <h3>{{ recipe_html[0] }}</h3>
+            <h4>Recipe courtesy of <a href={{ recipe_html[1]}} target ="_blank">{{ recipe_html[4] }}</a></h4>
+            <div class="recipe-image">
+                <h5><img src={{ recipe_html[3] }} alt="Recipe Image" class"recipe_image" width="700" height="325"></h5>
+            </div>
+        </div>
+        <div class="second-column">
+            <h6>{{ recipe_html[5] }} likes     |     Score: {{ recipe_html[6] }}/100</h6>
+            <h7><b>Ready in (minutes):</b> {{ recipe_html[2] }}</h7>
+            <br>
+            <h8><b>Servings:</b> {{ recipe_html[7] }}
+            <br><b>Ingredients:</b> {%for i in range(0, len_ingredients)%} {{ ingredients_html[i] }}, {%endfor%}</h8>
+            <br>
+            <br>
+            <div class="tweet">
+                <h9><img src="/static/twitter_symbol.png" alt="Twitter Logo" class="bird"> <i>{{ tweet_html[1] }}  <mark class="blue">- <b>{{ tweet_html[0] }}</b></mark></i></h9>
+                <br>
+                <h10><b>{{ tweet_html[2] }}</b></h10>
+                <br>
+                <h11><b>{{ tweet_html[3] }}</b></h11>
+            </div>
+        </div>
     </body>
-    -->
 </html>

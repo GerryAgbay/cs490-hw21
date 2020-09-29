@@ -1,45 +1,132 @@
 body{
-    background-color: #FFFAF0;
+    background-color: #FFF5EE;
 }
 
 h1 {
-    font-family: Verdana;
+    font-family: Courier;
     color: #000000;
-    font-size: 40pt;
+    font-size: 55pt;
     text-align: center;
     margin: 0;
 }
 
 .logo {
     border-radius: 15px;
-    border: 3px solid #FFFFFF;
-    height: 40px;
-    width: 40px;
+    border: 5px solid #FFFFFF;
+    height: 45px;
+    width: 45px;
+}
+
+.first-column {
+    width: 60%;
+    float:left;
+}
+
+.second-column {
+    width: 40%;
+    float: right;
 }
 
 mark.red{
     color: #DC143C;
-    background-color: #FFE4E1;
-    font-size: 60pt;
+    background-color: #FAEBD7;
+    font-size: 32pt;
 }
 h2 {
     font-family: Courier;
     color: #000000;
-    background-color: #00FFFF;
-    font-size: 30pt;
-    text-align: center;
+    background-color: #FAEBD7;
+    font-size: 22pt;
+    text-align: left;
+    margin: 0;
 }
 h3 {
     font-family: Courier;
     color: #000000;
-    font-size: 25pt;
-    text-align: center;
-    line-height: 10px;
+    font-size: 35pt;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    max-width: 800px;
 }
+
 h4 {
     font-family: Courier;
     color: #000000;
     font-size: 20pt;
+    text-align: left;
+    margin: 0;
+}
+h5 {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.recipe-image {
+    margin: auto;
+}
+
+h6 {
     text-align: center;
-    line-height:10px;
+    font-family: Courier;
+    color: #000000;
+    font-size: 20pt;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+h7 {
+    text-align: center;
+    font-family: Courier;
+    color: #000000;
+    font-size: 15pt;
+    margin: 0;
+}
+
+h8 {
+    text-align: center;
+    font-family: Courier;
+    color: #000000;
+    font-size: 15pt;
+    margin: 0;
+}
+
+h9 {
+    text-align: center;
+    font-family: Courier;
+    color: #000000;
+    font-size: 12pt;
+    margin-top: 5px;
+}
+
+.blue {
+    color: #008B8B;
+    background-color: #F0FFFF;
+}
+
+.bird {
+    border-radius: 25px;
+    height: 27px;
+    width: 30px;
+}
+
+h10 {
+    text-align: center;
+    font-family: Courier;
+    color: #000000;
+    font-size: 10pt;
+    margin: 0;
+}
+
+h11 {
+    text-align: center;
+    font-family: Courier;
+    color: #000000;
+    font-size: 8pt;
+    margin: 0;
+}
+
+.tweet {
+    background-color: #F0FFFF;
+    margin: auto;
 }
