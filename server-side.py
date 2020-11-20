@@ -22,11 +22,11 @@ auth_api = tweepy.API(auth)
 
 dotenv_path = join(dirname(__file__), 'spoonacular.env')
 load_dotenv(dotenv_path)
-    
-search_list = ["hamburger", "spaghetti", "bread", "chicken", "pasta", "pudding", "cake", "salad",
-               "steak", "taco", "udon", "sushi", "ramen", "pho", "bulgogi"]
 
 def get_food():
+    search_list = ["hamburger", "spaghetti", "bread", "chicken", "pasta", "pudding", "cake", "salad", 
+                   "steak", "taco", "udon", "sushi", "ramen", "pho", "bulgogi"]
+
     search_item = random.choice(search_list)
     return search_item
     
