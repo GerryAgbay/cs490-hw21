@@ -22,18 +22,9 @@ auth_api = tweepy.API(auth)
 
 dotenv_path = join(dirname(__file__), 'spoonacular.env')
 load_dotenv(dotenv_path)
-
-#if (len(sys.argv) > 1):\
-    #search_list = sys.argv[1:]
-#else:
-    #print("Please provide a list of foods at the command line.")
-    #sys.exit(0)
     
 search_list = ["hamburger", "spaghetti", "bread", "chicken", "pasta", "pudding", "cake", "salad",
                "steak", "taco", "udon", "sushi", "ramen", "pho", "bulgogi"]
-    
-#search_list = ["sushi", "onigiri", "pho", "udon", "kimchi", "tonkatsu", "bulgogi", 
-               #"wonton", "yakitori", "mochi", "jiaozi", "sashimi", "ramen", "yakiniku", "wagashi"]
 
 def get_food():
     search_item = random.choice(search_list)
@@ -64,13 +55,6 @@ def get_recipe_info(food_name):
     recipe_ingredients = []
     for ingredient in ingredients_list:
         recipe_ingredients.append(ingredient["name"])
-    
-    #print("ID: " + str(recipe_id))
-    #print("Name: " + recipe_name)
-    #print("Original Source: " + recipe_link)
-    #print("Ready in (Minutes): " + str(recipe_time))
-    #print("Image URL: " + recipe_image)
-    #print(recipe_ingredients)
     
     recipe_info_list = []
     recipe_info_list.append(recipe_name)
@@ -110,9 +94,7 @@ def index():
     food_name = get_food()
     tweet_info = get_tweet(food_name)
     recipe_info = get_recipe_info(food_name)
-    #recipe_info = ["Grilled Cheese Sandwich on Toasted Bun Melted Cheese", "https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/", "15", 
-    #"https://hips.hearstapps.com/hmg-prod/images/grilled-cheese-horizontal-jpg-1522266016.jpg", "Full Belly Sisters", "209", "83.0", "2",
-    #['butter', 'cayenne', 'egg yolks', 'ground chicken', 'lemon juice', 'oatmeal', 'poached eggs', 'Salt & Pepper', 'Salt & Pepper', 'shallot', 'water', 'worcestershire sauce']]
+   
     return flask.render_template(
         "food_tweets.html",
         keyword = food_name,
